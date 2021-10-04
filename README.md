@@ -7,23 +7,23 @@ App Description: Take someone's to-do list as user input. And return a customize
 
 **API Snippet:** 
 
-{
-    "affirmation": "You know more than you think"
-}
+        {
+            "affirmation": "You know more than you think"
+        }
 
-{
-    "affirmation": "You are a capable human"
-}
+        {
+            "affirmation": "You are a capable human"
+        }
 
-{
-    "affirmation": "Sucking at something is the first step towards being good at something"
-}
+        {
+            "affirmation": "Sucking at something is the first step towards being good at something"
+        }
 
 
 
 **Wireframes:** The proposed layout and design of your app. Create mockups for your views. If your are creating multiple views including both desktop and mobile formats, and consider whether or not you need to account for landscape and portrait orientations. Please use a digital tool to complete your wireframe.
 
-https://whimsical.com/design-your-day-6SVAzgLEXFD2Lm1LqS6McK
+        https://whimsical.com/design-your-day-6SVAzgLEXFD2Lm1LqS6McK
 
 **MVP:** A list of features you will need to build in order to meet the Minimum Viable Product. This will be the rubric your project will be graded against.
 
@@ -38,12 +38,13 @@ https://whimsical.com/design-your-day-6SVAzgLEXFD2Lm1LqS6McK
   * User can add another task, and each task will remain on the list or schedule.
   * A random affirmation will display on the page
   * User can cross or tick off tasks that are complete
+  * User can input priority, urgency, and enjoyment level to weight each task on their list. Tasks will be returned back to user in ranked order based off of these inputs
 
 **Post-MVP:** 
 A list of additional/advanced features you would like to include in your app after you have met MVP.
 
 - completed tasks change style
-- user can input priority, urgency, and enjoyment level to weight each task on their list. The weight of each of these can depend on their mood.
+- The weight of urgency, priority and enjoyment in ranking can depend on their mood.
 - A new affirmation appears each time the user completes a task
 - Add More APIs 
   * Personality info: https://app.traitify.com/developer
