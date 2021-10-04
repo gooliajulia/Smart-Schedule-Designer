@@ -71,6 +71,7 @@ const toDoListArray = [];
 addTaskButton.addEventListener('click', () => {
     console.log("~~~~~~~~~~~~~~~New Task Added ~~~~~~~~~~~~~~~~~")
     makeNewTaskObject();
+
 })
 
 // Define a function that querySelects text input in task, importance, urgency and enjoyment text boxes, stores them each in a new task object and adds that task object to the toDoListArray
@@ -88,6 +89,8 @@ const makeNewTaskObject = () => {
         urgency: parseInt(taskUrgency),
         enjoyment: parseInt(taskEnjoyment),
     }
+    // Adds newTask name to My list
+    addTaskToMyList(newTaskObject);
     //console.log(newTaskObject);
     // Adds newTaskObject to the toDoListArray
     toDoListArray.push(newTaskObject);
@@ -122,6 +125,14 @@ const rateTask = (taskObject) => {
     return pointTotal;
 }
 
+//create a function that adds task name to My List ul li in the order that the task is added. takes input of newTaskObject
 
+const addTaskToMyList = (newTaskObject) => {
+    const taskName = newTaskObject.name
+    const taskNameLi = document.createElement('li');
+    taskNameLi.innerText = taskName;
+    const myListUl = document.querySelector('ul#myList');
+    myListUl.appendChild(taskNameLi);
+}
 
 
