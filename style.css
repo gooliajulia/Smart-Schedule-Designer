@@ -32,3 +32,64 @@ a footer as a spaceholder.
 
 
 */
+
+
+/* ~~~~~~~~~~~~~~~Whole page flexbox establishing ~~~~~~~~~` */
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+}
+
+/* I created section tags for each child element of the body to have a common name (as opposed to div, section etc. But now I'm realizing this excludes header and footer. Instead I could probably just add the body_child class to each subsection. */
+
+/* This pads vertically between elements. Consider adjusting left and right padding as well at some point */
+section.body_child {
+    padding: 50px 0 50px 0;
+}
+
+/* Establishing flexbox notes:
+    parent container 1 = #landing_page section (class = two_side_by_side 
+    children;
+        a. #user_input div (class = half_page) 
+        b. #to_do_list div (class = half_page)
+*/
+
+/* Define first flex container NOTE: it seems I can only apply this to the sectioons who have this class listed first. See if one class cancels another out and what the rules for that are*/
+section.two_side_by_side {
+    display: flex;
+    /* creates space between child elements (div#user_input and div#to_do_list */
+    justify-content: space-between;
+}
+
+div#affirmation {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#affirmation h3 {
+    align-self: center;
+}
+
+
+/* ~~~~~~~~~~~~~~~ Design~~~~~~~~~~~~~~~~~~~~ */
+
+body {
+    background-color: #fbf7f3;
+
+}
+
+header h1 {
+    color: #c06c84;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 10px;
+}
+
+
+
+
