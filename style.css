@@ -63,12 +63,12 @@ section.two_side_by_side {
     justify-content: space-between;
 }
 
-div#affirmation {
+div#advice {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-div#affirmation h3 {
+div#advice h3 {
     align-self: center;
 }
 

@@ -51,20 +51,20 @@ GENERAL NOTES:
             <div class='half_page' id='user_input'>
                 <h2>What do you need to get done?</h2>
             <!-- post MVP make this section a form -->
-                <input type='text' id='task' placeholder="task">
+                <input class='reset' type='text' id='task' placeholder="Task">
             <!-- These <br> tags break the two input boxes from being inline, and add an extra line between. (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_test) -->
                 <br>
                 <br>
-                <input type='text' id='importance' placeholder="How important is this task? (1-10)">
+                <input class='reset' type='text' id='importance' placeholder="How important is this task? (1-10)">
                 <br>
                 <br>
-                <input type='text' id='urgency' placeholder="How urgent is this task? (1-10)">
+                <input class='reset' type='text' id='urgency' placeholder="How urgent is this task? (1-10)">
                 <br>
                 <br>
-                <input type="text" id='enjoyment' placeholder="How much do you enjoy doing this task?">
+                <input class='reset' type="text" id='enjoyment' placeholder="How much do you enjoy doing this task?">
                 <br>
                 <br>
-                <input type="submit" value="Add Task to my To-Do List">
+                <input type="submit" value="Add Task to my To-Do List" id='addTaskSubmitButton'>
             </div>
             <div class='half_page' id='to_do_list'>
                 <h2>My List:</h2>
@@ -75,9 +75,9 @@ GENERAL NOTES:
         </section>
         <section class='body_child' class='two_side_by_side'   id='inspire'>
             <!-- can potentially remove this div as the section does the same job. Also consider renameing all full_page and half_page classes to half width to not confuse with height/vertical -->
-            <div class='full_page' id="affirmation">
+            <div class='full_page' id="advice">
                 <img src='images/sunflower.png' alt='Pretty Image' height='200px'>
-                <h3 id='affirmation_placeholder'>Inspirational Affirmation Goes Here (via API)</h3>
+                <h3 id='advice_placeholder'></h3>
             </div>
         </section>
         <section class='body_child' id='schedule'>
