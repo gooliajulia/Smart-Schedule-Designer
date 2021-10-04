@@ -1,7 +1,7 @@
 # Smart-Schedule-Designer
-**App Title:** Design your day: a personalized + optimized schedule for you.
+**App Title:** Design Your Day: a personalized + optimized schedule for you.
 
-**App Description:** Take someone's to-do list as user input. And return a customized schedule for their day based on certain ranking categories such as urgency, time-needed-to-complete, and importance.
+**App Description:** Take someone's to-do list as user input. Return a customized schedule for their day based on certain ranking categories such as urgency, time-needed-to-complete, and importance.
 
 **API:** "Affirmations" - https://www.affirmations.dev/
 
