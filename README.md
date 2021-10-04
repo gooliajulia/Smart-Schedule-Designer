@@ -83,7 +83,7 @@ A list of additional/advanced features you would like to include in your app aft
 
 **Goals:** What you plan to accomplish for each day of the project week.
 - Monday
-        - Get project approved. 
+-       Get project approved. 
         - Create a timeframes Table. 
         - Create HTML framework
         - Set up basic CSS "passable" foundation
