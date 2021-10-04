@@ -25,13 +25,13 @@ const fetchAdvice = () => {
     const advAPIUrl = 'https://api.adviceslip.com/advice'
 
     console.log('Making request');
-    console.log(`API URL: ${advAPIUrl}`);
+    //console.log(`API URL: ${advAPIUrl}`);
 
     fetch(advAPIUrl)
         .then((result) => { return result.json() })
         .then((resultJSON) => {
 
-            console.log(resultJSON)
+            //console.log(resultJSON)
             showAdvice(resultJSON);
         })
         .catch((err) => {
@@ -41,7 +41,7 @@ const fetchAdvice = () => {
 
 
 const showAdvice = (advice) => {
-    console.log(advice);
+    //console.log(advice);
 
     const advicePlace = document.querySelector('#advice_placeholder');
 
@@ -69,6 +69,7 @@ const toDoListArray = [];
 
 
 addTaskButton.addEventListener('click', () => {
+    console.log("~~~~~~~~~~~~~~~New Task Added ~~~~~~~~~~~~~~~~~")
     makeNewTaskObject();
 })
 
@@ -87,17 +88,20 @@ const makeNewTaskObject = () => {
         urgency: parseInt(taskUrgency),
         enjoyment: parseInt(taskEnjoyment),
     }
-    console.log(newTaskObject);
+    //console.log(newTaskObject);
     // Adds newTaskObject to the toDoListArray
     toDoListArray.push(newTaskObject);
-    console.log(toDoListArray);
+    //console.log(toDoListArray);
 
     //This uses the function defined below to create a rating for the task. Will probably best to edit the function to return the rating, and assign that rating to a variable, and add that variable to the tasks object as a rating property. Will also have to change this code so that it's not always 0, but whichever object from the array we need to work on
-    rateTask(toDoListArray[0]);
+    const newTaskRating = rateTask(toDoListArray[(toDoListArray.length-1)]);
+    //console.log(newTaskRating);
+    newTaskObject.rating = newTaskRating;
+    console.log(newTaskObject);
+    console.log(toDoListArray);
     
     //The following code resets the input text boxes so user can add more items
     const inputArray = document.querySelectorAll('.reset')
-    console.log(`Input Array: ${inputArray}`);
     inputArray.forEach(function(inputBox) {
         //console.log(`Input Box ${inputBox.value}`)
         inputBox.value = '';
@@ -112,7 +116,7 @@ const makeNewTaskObject = () => {
 // create a function that calculates Task's weighted ranking
 
 const rateTask = (taskObject) => {
-    console.log(taskObject)
+    //console.log(taskObject)
     const pointTotal = taskObject.importance + taskObject.urgency + taskObject.enjoyment
     console.log(`${taskObject.name} task is rated with ${pointTotal} points.`)
     return pointTotal;
