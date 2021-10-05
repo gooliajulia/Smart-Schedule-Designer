@@ -315,23 +315,43 @@ console.log(workingTime);
 const scheduleTask = (task, minutesToComplete = 25) => {
     console.log(workingTime);
     console.log(minutesToComplete);
-    let string = `${workingTime[0]}:${workingTime[1]} ${workingTime[2]}    ${task}`;
-    workingTime = addTime(workingTime, minutesToComplete);
+    if (workingTime[1] === 0) {
+        workingTime[1] = '00'
+    }
+    let string = `${workingTime[0]}:${workingTime[1]} ${workingTime[2]} \u00A0\u0020\u0020\u0020\u0020\u0020 ${task}`;
+    workingTime = roundTime(addTime(workingTime, minutesToComplete)[0],addTime(workingTime, minutesToComplete)[1],addTime(workingTime, minutesToComplete)[2]);
     console.log(string);
     console.log(workingTime);
     let array = [string, workingTime];
     return array;
 }
 
-scheduleTask(rankedTaskArray[0])
+// scheduleTask(rankedTaskArray[0])
 console.log(workingTime);
 
 // The following function gets the section with id #schedule and styles it with the following:
 // background-color: #e79e85;
 // border-radius: 50px;
 // margin-bottom: 40px;
-// It then gets the ul with id#scheduleList and uses a for loop to add a new time and task li for each task in the task array. It will use the scheduleTask function which inputs a task and optional minutes to complete, and returns an array of the string for the li and the new working time to be used for the next task, before using for the next task, we will use the roundTime function to round up. Note this function takes in hours minutes and ampm as arguments(test that the ampm functions okay)
+// It then gets the ul with id#scheduleList and uses a for loop to add a new time and task li for each task in the task array. It will use the scheduleTask function which inputs a task and optional minutes to complete, and returns an array of the string for the li and the new working time to be used for the next task, before using for the next task, we should use the roundTime function to round up (giving the user transition time/breaks between tasks). Note this function takes in hours minutes and ampm as arguments(test that the ampm functions okay) and returns an array of hours, minutes, ampm
 
+// This page was helpful to assign already written css code to an element from js
+// https://www.javascripttutorial.net/dom/css/add-styles-to-an-element/
+const createSchedule = (array) => {
+    const scheduleSection = document.querySelector('#schedule');
+    scheduleSection.style.cssText += 'background-color:#e79e85;border-radius:50px;margin-bottom:40px;padding:40px';
+    const scheduleUl = document.querySelector('#scheduleList');
+    array.forEach(function(rankedTask) {
+        const li = document.createElement('li');
+        const liText = scheduleTask(rankedTask)[0];
+        li.innerText = liText;
+        scheduleUl.appendChild(li);
+
+    })
+    
+
+}
+createSchedule(rankedTaskArray);
 
 
 // 
