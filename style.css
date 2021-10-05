@@ -67,7 +67,7 @@ section.two_side_by_side {
     margin-bottom: 50px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
     section.two_side_by_side {
         flex-direction: column;
     }
@@ -80,7 +80,7 @@ section.two_side_by_side {
     }
 
     div#to_do_list {
-        margin-top: 80px;
+        margin-top: 150px;
     }
 }
 
@@ -146,6 +146,7 @@ div#to_do_list ul {
 section#schedule {
     background-color: #e79e85;
     border-radius: 50px;
+    margin-bottom: 40px;
 }
 
 header h1 {
@@ -181,6 +182,10 @@ ul#myList li {
 li {
     font-family: 'PT Serif', serif;
     color: #bb5a5a
+}
+
+section#schedule li {
+    color: #713045
 }
 
 
@@ -227,13 +232,13 @@ input#addTaskSubmitButton {
     border-radius: 25px;
     background-color: #e79e85;
     margin-left: 135px;
-    margin-top: 15px;
+    margin-top: 30px;
     color: #430d27;
 }
 
 section#inspire {
     /* background-color: #e79e85; */
-    width: 100vw;
+    /* width: 100vw; */
     
 }
 
