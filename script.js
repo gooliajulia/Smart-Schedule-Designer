@@ -198,8 +198,9 @@ const rankTasks = (objectArray) => {
     })
 }
 
-rankTasks(sampleObjectArray);
-console.log(sampleObjectArray);
+// This will have to wait until the create schedule is clicked
+// rankTasks(toDoListArray);
+// console.log(toDoListArray);
 
 
 // The following function takes the sorted/ranked object array, and returns an array of the task names in that order
@@ -211,8 +212,8 @@ const rankedTaskObjectArrayToSimpleArray = (objectArray) => {
     return newArray;
 }
 
-const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(sampleObjectArray);
-console.log(rankedTaskArray);
+// const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(sampleObjectArray);
+// console.log(rankedTaskArray);
 
 // 2. Create a function that takes current time, and rounds it to the nearest 15 or 30 minute interval
 const scheduleStartTime = () => {
@@ -337,21 +338,46 @@ console.log(workingTime);
 
 // This page was helpful to assign already written css code to an element from js
 // https://www.javascripttutorial.net/dom/css/add-styles-to-an-element/
+
+// This is the code that will run when the create schedule button is clicked, but outside of the createSchedule function:
+
+// rankTasks(toDoListArray);
+// console.log(toDoListArray);
+
+// const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(toDoListArray);
+// console.log(rankedTaskArray); rankedTaskArray will be the argument for creating the schedule.
+
 const createSchedule = (array) => {
     const scheduleSection = document.querySelector('#schedule');
-    scheduleSection.style.cssText += 'background-color:#e79e85;border-radius:50px;margin-bottom:40px;padding:40px';
+    scheduleSection.style.cssText += 'background-color:#e79e85;border-radius:50px;padding:40px';
     const scheduleUl = document.querySelector('#scheduleList');
     array.forEach(function(rankedTask) {
         const li = document.createElement('li');
         const liText = scheduleTask(rankedTask)[0];
         li.innerText = liText;
         scheduleUl.appendChild(li);
-
     })
-    
-
 }
-createSchedule(rankedTaskArray);
+// createSchedule(rankedTaskArray);
+
+
+// This will be an event listener for when the Design My Day button is clicked
+
+const designMyDayButton = document.querySelector('#designMyDayButton');
+
+designMyDayButton.addEventListener('click', () => {
+    console.log("Design My Day! button was clicked");
+    rankTasks(toDoListArray);
+    console.log(toDoListArray);
+
+    const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(toDoListArray);
+    console.log(rankedTaskArray);
+
+    createSchedule(rankedTaskArray);
+})
+
+
+
 
 
 // 

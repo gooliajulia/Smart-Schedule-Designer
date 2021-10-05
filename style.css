@@ -86,13 +86,11 @@ section.two_side_by_side {
 
 div#advice {
     display: flex;
-    justify-content:right;
+    justify-content:space-between;
     margin: 50px 20px 0 0;
 }
 
-div#advice h3 {
-    align-self: center;
-}
+
 
 ul#myList {
     display: flex;
@@ -234,6 +232,18 @@ input#addTaskSubmitButton {
     background-color: #e79e85;
     margin-left: 135px;
     margin-top: 30px;
+    color: #430d27;
+}
+
+input#designMyDayButton {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #e79e85;
+    margin-left: 135px;
+    margin-top: 30px;
+    margin-right: 50px;
+    height: 50px;
     color: #430d27;
 }
 
