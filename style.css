@@ -143,11 +143,12 @@ div#to_do_list ul {
     margin-bottom: 30px;
 }
 
-section#schedule {
+/* I'm going to style this section from the DOM when a "make my schedule" button is clicked */
+/* section#schedule {
     background-color: #e79e85;
     border-radius: 50px;
     margin-bottom: 40px;
-}
+} */
 
 header h1 {
     font-family: 'Rufina', serif;

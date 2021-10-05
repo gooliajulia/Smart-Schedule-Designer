@@ -222,15 +222,18 @@ const scheduleStartTime = () => {
     console.log(`${currentHour}:${currentMinutes}`);
     // const testTime = today.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     // console.log(testTime);
-    const startTime = `${roundTime(currentHour, currentMinutes)[0]}:${roundTime(currentHour, currentMinutes)[1]} ${roundTime(currentHour, currentMinutes)[2]}`;
-    console.log(startTime);
+
+    // const startTime = `${roundTime(currentHour, currentMinutes)[0]}:${roundTime(currentHour, currentMinutes)[1]} ${roundTime(currentHour, currentMinutes)[2]}`;
+    // I'm changing the above code so that this function returns a time array since that is more workable for adding minutes.
+    let startTimeA = roundTime(currentHour, currentMinutes);
+    console.log(startTimeA);
+    return startTimeA;
     
 }
 
 //The following function is meant to round time to the nearest quarter hour
-
-const roundTime = (hour, minutes) => {
-    let ampm = 'am'
+// adding a third parameter of AmPm with default 'am' for future rounding
+const roundTime = (hour, minutes, ampm='am') => {
     if ( minutes < 15 ) {
         minutes = 15;
     } else if ( minutes < 30 ) {
@@ -239,7 +242,7 @@ const roundTime = (hour, minutes) => {
         minutes = 45;
     } else {
         hour+= 1;
-        minutes = 00;
+        minutes = '00';
     }
     if (hour === 0 ) {
         ampm = 'am'
@@ -255,7 +258,79 @@ const roundTime = (hour, minutes) => {
 // console.log(roundTime(0,45))
 // console.log(roundTime(0,13))
 
-scheduleStartTime();
+let startTime = scheduleStartTime();
+console.log(startTime);
+
+
+// The following function takes in a time array [hours, minutes, ampm] and desired time increase in minutes, and returns the new time with the added minutes
+
+const addTime = (timeArray, addMins) => {
+    console.log(timeArray);
+    console.log(typeof timeArray[1])
+
+    console.log(typeof addMins)
+    console.log((timeArray[1] + 25))
+    let totalMinutes = timeArray[1] + addMins;
+    console.log(totalMinutes);
+
+    let hoursToAdd = Math.floor((totalMinutes/60));
+    console.log(hoursToAdd);
+
+    let minutesToAdd = totalMinutes % 60 ;
+    console.log(minutesToAdd);
+
+    let tempAmPm = timeArray[2];
+
+    let newHour = timeArray[0] + hoursToAdd;
+    const newMin = minutesToAdd;
+
+    // if time changes from am to pm, this code will adjust for that
+    if ( newHour > 12 ) {
+        tempAmPm === 'pm' ? tempAmPm = 'am' : tempAmPm = 'pm';
+        newHour -= 12;
+    }
+
+    let newTime = [newHour, newMin, tempAmPm];
+    console.log(newTime);
+    return newTime;
+}
+
+// addTime([4,20, 'pm'], 10)
+// // 10
+// addTime([4,54, 'pm'], 80)
+// // 20
+// addTime([10,08, 'pm'], 212)
+// // 20
+// addTime([10,08, 'pm'], 212)
+// addTime([10,08, 'pm'], 212)
+
+// So addMins % 60 will return the minutes that need to be added to timeArray minutes
+
+// This variable will hold the latest time being used
+let workingTime = startTime;
+console.log(workingTime);
+
+// The following function takes in a task and the minutes estimated to complete it. This will have a default amount of 25 minutes (a pomodoro) which can be overridden later if this information is given. The function will return an array containing 1. a string of current working time plus task ( to be added to schedule), 2. the new working time (which is equal to current workingTime + minutes argument via addTime function)
+
+const scheduleTask = (task, minutesToComplete = 25) => {
+    console.log(workingTime);
+    console.log(minutesToComplete);
+    let string = `${workingTime[0]}:${workingTime[1]} ${workingTime[2]}    ${task}`;
+    workingTime = addTime(workingTime, minutesToComplete);
+    console.log(string);
+    console.log(workingTime);
+    let array = [string, workingTime];
+    return array;
+}
+
+scheduleTask(rankedTaskArray[0])
+console.log(workingTime);
+
+// The following function gets the section with id #schedule and styles it with the following:
+// background-color: #e79e85;
+// border-radius: 50px;
+// margin-bottom: 40px;
+// It then gets the ul with id#scheduleList and uses a for loop to add a new time and task li for each task in the task array. It will use the scheduleTask function which inputs a task and optional minutes to complete, and returns an array of the string for the li and the new working time to be used for the next task, before using for the next task, we will use the roundTime function to round up. Note this function takes in hours minutes and ampm as arguments(test that the ampm functions okay)
 
 
 
