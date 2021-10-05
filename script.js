@@ -136,3 +136,145 @@ const addTaskToMyList = (newTaskObject) => {
 }
 
 
+// Making the schedule PseudoCode
+// 1. Create a function that ranks the task list in order and returns an array of the task names in that order
+
+const sampleObjectArray = [
+
+    {
+        enjoyment: 3 ,
+        importance: 7 ,
+        name: "do the dishes" ,
+        rating: 19 ,
+        urgency: 9 ,
+    }, 
+
+    {
+        enjoyment: 5 ,
+        importance: 7 ,
+        name: "start laundry" ,
+        rating: 20 ,
+        urgency: 8 ,
+    },
+
+    {
+        enjoyment: 2 ,
+        importance: 9 ,
+        name: "edit photos" ,
+        rating: 21 ,
+        urgency: 10 ,
+    }, 
+
+    {
+        enjoyment: 5 ,
+        importance: 5 ,
+        name: "inbox 0" ,
+        rating: 15 ,
+        urgency: 5 ,
+    },
+
+    {
+        enjoyment: 3 ,
+        importance: 5 ,
+        name: "clean out car" ,
+        rating: 14 ,
+        urgency: 6 ,
+    }
+]
+
+console.log(sampleObjectArray);
+console.log(sampleObjectArray[0].name);
+console.log(sampleObjectArray[0].rating);
+
+
+// This function will use the sort method on an array of objects using the compare parameter (a-b). Because it is an object, we must target the object property we want to compare in this case, rating
+// reference: https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+
+// I wrote b.rating - a.rating so the highest number would be first
+
+const rankTasks = (objectArray) => {
+    objectArray.sort((a,b) => {
+        return b.rating - a.rating;
+    })
+}
+
+rankTasks(sampleObjectArray);
+console.log(sampleObjectArray);
+
+
+// The following function takes the sorted/ranked object array, and returns an array of the task names in that order
+
+const rankedTaskObjectArrayToSimpleArray = (objectArray) => {
+    newArray = [];
+    objectArray.forEach(element =>
+        newArray.push(element.name));
+    return newArray;
+}
+
+const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(sampleObjectArray);
+console.log(rankedTaskArray);
+
+// 2. Create a function that takes current time, and rounds it to the nearest 15 or 30 minute interval
+const scheduleStartTime = () => {
+    const today = new Date();
+    const currentHour = today.getHours();
+    const currentMinutes = today.getMinutes();
+    console.log(`${currentHour}:${currentMinutes}`);
+    // const testTime = today.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    // console.log(testTime);
+    const startTime = `${roundTime(currentHour, currentMinutes)[0]}:${roundTime(currentHour, currentMinutes)[1]} ${roundTime(currentHour, currentMinutes)[2]}`;
+    console.log(startTime);
+    
+}
+
+//The following function is meant to round time to the nearest quarter hour
+
+const roundTime = (hour, minutes) => {
+    let ampm = 'am'
+    if ( minutes < 15 ) {
+        minutes = 15;
+    } else if ( minutes < 30 ) {
+        minutes = 30;
+    } else if ( minutes < 45 ) {
+        minutes = 45;
+    } else {
+        hour+= 1;
+        minutes = 00;
+    }
+    if (hour === 0 ) {
+        ampm = 'am'
+        hour = 12;
+    } else if (hour > 12) {
+        ampm = 'pm'
+        hour-= 12;
+    }
+    const startTimeArray = [hour, minutes, ampm];
+    return startTimeArray;
+} 
+
+// console.log(roundTime(0,45))
+// console.log(roundTime(0,13))
+
+scheduleStartTime();
+
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+
+
+
+
+
+
+
