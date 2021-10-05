@@ -132,7 +132,7 @@ body {
 div#to_do_list {
     background-color: #e79e85;
     border-radius: 30px;
-    width: 210px;
+    width: 30%;
     height: 100%;
     margin-right: 70px;
 }
