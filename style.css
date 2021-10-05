@@ -33,6 +33,9 @@ a footer as a spaceholder.
 
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Rufina:wght@700&display=swap');
 
 /* ~~~~~~~~~~~~~~~Whole page flexbox establishing ~~~~~~~~~` */
 
@@ -60,35 +63,166 @@ section.body_child {
 section.two_side_by_side {
     display: flex;
     /* creates space between child elements (div#user_input and div#to_do_list */
-    justify-content: space-between;
+    justify-content:space-between;
+    margin-bottom: 50px;
 }
 
 div#advice {
     display: flex;
-    justify-content: space-around;
+    justify-content:right;
+    margin: 50px 20px 0 0;
 }
 
 div#advice h3 {
     align-self: center;
 }
 
+ul#myList {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+/* ul#myList li {
+
+} */
+
 
 /* ~~~~~~~~~~~~~~~ Design~~~~~~~~~~~~~~~~~~~~ */
+/* Sample color stories:
+
+.first-color { 
+	background: #430d27; 
+}
+	
+.second-color { 
+	background: #582233; 
+}
+
+.third-color { 
+	background: #713045; 
+}
+
+.fourth-color { 
+	background: #c94e4e; 
+} */
+
+
+
 
 body {
-    background-color: #fbf7f3;
+    background-color: #713045;
 
+}
+
+div#to_do_list {
+    background-color: #e79e85;
+    border-radius: 30px;
+    width: 210px;
+    height: 100%;
+    margin-right: 70px;
+}
+
+div#to_do_list ul {
+    margin-bottom: 30px;
+}
+
+section#schedule {
+    background-color: #e79e85;
+    border-radius: 50px;
 }
 
 header h1 {
-    color: #c06c84;
+    font-family: 'Rufina', serif;
+    font-size: 50px;
+    padding: 70px 0 0 0;
+    color: #e79e85;
 }
+
+h2 {
+    font-family: 'PT Serif', serif;
+    font-size: 18px;
+    padding: 0 0 10px 0;
+    color: #e79e85;
+}
+
+div#to_do_list h2 {
+    color: #713045;
+    margin-left: 15px;
+}
+
+
+h3 {
+    font-family: 'PT Serif', serif;
+    color: #e79e85;
+}
+
+ul#myList li {
+    border-bottom: 2px solid #713045;
+
+}
+
+li {
+    font-family: 'PT Serif', serif;
+    color: #bb5a5a
+}
+
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0 10px;
 }
+
+input {
+    font-family: 'PT Serif', serif;
+    border: none;
+    border-bottom: 2px solid#bb5a5a;
+    background-color: #713045;
+    padding: 3px;
+    
+}
+
+
+::placeholder {
+    color: #e79e85;
+}
+
+
+input#task {
+    width: 60px;
+}
+
+input#importance {
+    width: 210px;
+}
+
+input#urgency {
+    width: 200px;
+}
+
+input#enjoyment {
+    width: 250px;
+}
+
+input#addTaskSubmitButton {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #e79e85;
+    margin-left: 135px;
+    margin-top: 15px;
+    color: #430d27;
+}
+
+section#inspire {
+    /* background-color: #e79e85; */
+    width: 100vw;
+    
+}
+
+
+
 
 
 

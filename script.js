@@ -130,7 +130,7 @@ const rateTask = (taskObject) => {
 const addTaskToMyList = (newTaskObject) => {
     const taskName = newTaskObject.name
     const taskNameLi = document.createElement('li');
-    taskNameLi.innerText = taskName;
+    taskNameLi.innerText = `- ${taskName}`;
     const myListUl = document.querySelector('ul#myList');
     myListUl.appendChild(taskNameLi);
 }
