@@ -133,7 +133,18 @@ const addTaskToMyList = (newTaskObject) => {
     taskNameLi.innerText = `- ${taskName}`;
     const myListUl = document.querySelector('ul#myList');
     myListUl.appendChild(taskNameLi);
+    taskNameLi.addEventListener('click', () => {
+        console.log(taskNameLi.classList)
+        if (taskNameLi.classList == 'strike') {
+            taskNameLi.classList = '';
+        } else {
+            taskNameLi.classList = 'strike'
+        }
+    })
 }
+
+
+
 
 
 // Making the schedule PseudoCode
@@ -374,12 +385,35 @@ designMyDayButton.addEventListener('click', () => {
     console.log(rankedTaskArray);
 
     createSchedule(rankedTaskArray);
+
 })
 
 
+// PseudoCode for To Do List strike through upon click
+// 1. get element by querySelector (the ul list)
+// 2. Use forEach() on the ul to create an event listener for each li ('click')
+// 3.  if the li is not striked through, strike through, if it is, unstrike.
 
 
 
+
+
+
+
+
+
+//     li.addEventListener('click', () => {
+//         if (li.style.textDecoration === 'line-through') {
+//             li.style.textDecoration = '';
+//         } else {
+//             li.style.textDecoration = 'line-through'
+//         }
+//     )
+
+// } )
+
+
+// 
 // 
 // 
 // 
