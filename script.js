@@ -229,6 +229,7 @@ const rateTask = (taskObject) => {
 const addTaskToMyList = (newTaskObject) => {
     const taskName = newTaskObject.name
     const taskNameLi = document.createElement('li');
+    taskNameLi.setAttribute('id', 'myListItem')
     taskNameLi.innerText = `- ${taskName}`;
     const myListUl = document.querySelector('ul#myList');
     myListUl.appendChild(taskNameLi);
@@ -493,31 +494,91 @@ designMyDayButton.addEventListener('click', () => {
 // colorA2 will have a css section that changes to that color scheme
 // the next click would then change class 'colorA2' to 'colorA3'
 // the next click would remove class 'colorA3'
-
+let colorTracker = 0
 const logo = document.querySelector('#logo')
 logo.addEventListener('click', () => {
     console.log('Logo was clicked!');
-    const colorAArray = document.querySelectorAll('.colorA');
-    console.log(colorAArray);
-    colorAArray.forEach((element) =>
-        element.classList.add('colorA2') )
-    const colorABackgroundArray = document.querySelectorAll('.colorABackground');
-    console.log(colorABackgroundArray);
-    colorABackgroundArray.forEach((element) =>
-        element.classList.add('colorA2Background'));
-    const colorAPlaceholderArray = document.querySelectorAll('[placeholder]');
-    console.log(colorAPlaceholderArray);
-    colorAPlaceholderArray.forEach((element) => 
-        element.classList.add('colorA2Placeholder'))
-    const colorBArray = document.querySelectorAll('.colorBBackground');
-    console.log(colorBArray);
-    colorBArray.forEach((element) =>
-        element.classList.add('colorB2Background'))
-    const colorCArray = document.querySelectorAll('.colorCBackground');
-    console.log(colorCArray);
-    colorCArray.forEach((element) => 
-        element.classList.add('colorC2Background'))
+    if (colorTracker === 0) {
+        switchColorTheme(earthyGreenTheme);
+        colorTracker += 1;
+    } else if (colorTracker === 1) {
+        switchColorTheme(orangeTheme);
+        colorTracker += 1;
+    } else if  (colorTracker === 2) {
+        switchColorTheme(classicColors)
+        colorTracker += 1;
+    } else if (colorTracker === 3) {
+        switchColorTheme(originalTheme);
+        colorTracker = 0;
+    }
+    
+
+    // I think it would honestly be better with this code to target elements individually or in similar groups and change the color here either via style or cssText. Consider creating specific functions for each color so that here you can just write: changetoBlueTheme, or change to GreenTheme. You can also include an if statement that checks if body background color =='maroon' etc as your gauge for switching.
+    // const colorAArray = document.querySelectorAll('.colorA');
+    // console.log(colorAArray);
+    // colorAArray.forEach((element) =>
+    //     element.classList.add('colorA2') )
+    // const colorABackgroundArray = document.querySelectorAll('.colorABackground');
+    // console.log(colorABackgroundArray);
+    // colorABackgroundArray.forEach((element) =>
+    //     element.classList.add('colorA2Background'));
+    // const colorAPlaceholderArray = document.querySelectorAll('[placeholder]');
+    // console.log(colorAPlaceholderArray);
+    // colorAPlaceholderArray.forEach((element) => 
+    //     element.classList.add('colorA2Placeholder'))
+    // const colorBArray = document.querySelectorAll('.colorBBackground');
+    // console.log(colorBArray);
+    // colorBArray.forEach((element) =>
+    //     element.classList.add('colorB2Background'))
+    // const colorCArray = document.querySelectorAll('.colorCBackground');
+    // console.log(colorCArray);
+    // colorCArray.forEach((element) => 
+    //     element.classList.add('colorC2Background'))
 })
+
+// I'm now thinking, is it possible to make one function for all of these, with inputs as the colors. So like an array of the color scheme is input. and then the function uses that array to assign the colors to the different elements. We would still need to run through all of the elements individually, but it would my much DRYer.
+
+// So this would look like. a switchColor function that takes in an array of 4 colors. the function runs through every element on the page and changes the css colors using a variable (the parameter of the function) so if its an array, the function takes in an array [a,b,c,d]
+
+const switchColorTheme = ([a,b,c,d]) => {
+    document.querySelector('body').style.backgroundColor = a;
+    document.querySelector('#task').style.backgroundColor = a;
+    document.querySelector('#importance').style.backgroundColor = a;
+    document.querySelector('#urgency').style.backgroundColor = a;
+    document.querySelector('#enjoyment').style.backgroundColor = a;
+    document.querySelector('#takeOnTheWorld').style.color = a;
+    document.querySelector('#good').style.color = a;
+    document.querySelector('#fine').style.color = a;
+    document.querySelector('#ehh').style.color =  a;
+    document.querySelector('#addRandomTaskButton').style.color = a;
+    document.querySelector('#addTaskSubmitButton').style.color = a;
+    document.querySelector('#myListTitle').style.color = a;
+    document.querySelector('#designMyDayButton').style.color = a;
+    document.querySelector('#mood_check').style.backgroundColor = b;
+    document.querySelector('#task').style.borderColor = b;
+    document.querySelector('#importance').style.borderColor = b;
+    document.querySelector('#urgency').style.borderColor = b;
+    document.querySelector('#enjoyment').style.borderColor = b;
+    document.querySelector('#logo').style.color = c;
+    document.querySelector('#howAreYou').style.color = c;
+    document.querySelector('#takeOnTheWorld').style.backgroundColor = c;
+    document.querySelector('#good').style.backgroundColor = c;
+    document.querySelector('#fine').style.backgroundColor = c;
+    document.querySelector('#ehh').style.backgroundColor = c;
+    document.querySelector('#what').style.color = c;
+    document.querySelector('#addRandomTaskButton').style.backgroundColor = c;
+    document.querySelector('#addTaskSubmitButton').style.backgroundColor = c;
+    document.querySelector('#to_do_list').style.backgroundColor = c;
+    document.querySelector('#designMyDayButton').style.backgroundColor = c;
+    document.querySelector('#advice_placeholder').style.color = c;
+    
+
+}
+
+const earthyGreenTheme = ['#b6cdbd', '#ddeedf', '#5c715e', '#f2f9f1'];
+const orangeTheme = ['#f2e9d0', '#eaceb4', '#e79e85' , '#bb5a5a'];
+const originalTheme = ['#713045', '#bb5a5a', '#e79e85', '#c94e4e'];
+const classicColors = ['#494949', '#fffdf6', '#ece8d9', '#faf6e9' ]
 
 
 // PseudoCode for To Do List strike through upon click

@@ -326,7 +326,7 @@ section#mood_check {
     margin-top: 0px;
     margin-bottom: 50px;
     margin-right: 60px;
-    background-color: #b16060;
+    background-color: #bb5a5a;
     /* width: 100vw; */
     padding: 20px;
     border-radius: 40px;
@@ -350,7 +350,7 @@ h3#advice_placeholder {
     text-align: center;
 }
 
-.colorA2 {
+/* .colorA2 {
     color: #f2f9f1;
 }
 .colorA2Background {
@@ -361,7 +361,7 @@ h3#advice_placeholder {
 }
 .colorC2Background {
     background-color: #b6cdbd;
-}
+} */
 input.button {
     padding: 10px;
     border: none;
