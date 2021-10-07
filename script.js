@@ -132,6 +132,20 @@ console.log(moodButtonParent);
 console.log(moodButtonParent.length);
 moodButtonParent.forEach((button) => 
     button.addEventListener('click', () => {
+            if (button.classList.contains('clicked')) {
+                button.classList.remove('clicked');
+                button.style.backgroundColor = '#e79e85';
+                button.style.color = '#713045'
+            } else {
+            button.style.backgroundColor = '#713045';
+            button.style.color = '#e79e85'
+            button.classList.add('clicked');
+            }
+
+        // setTimeout (
+        //     button.style.backgroundColor = 'blue', 5000
+        // )
+
         console.log(button.value);
         let buttonMood = button.id;
         mood = buttonMood;
