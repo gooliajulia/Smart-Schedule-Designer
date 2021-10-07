@@ -64,7 +64,7 @@ GENERAL NOTES:
                 <input class='reset' type="text" id='enjoyment' placeholder="How much do you enjoy doing this task?">
                 <br>
                 <br>
-                <input type="submit" value="Add Task to My List" id='addTaskSubmitButton'>
+                <input type="submit" value="Add Task to My List" id='addTaskSubmitButton' class='button'>
             </div>
             <div class='half_page' id='to_do_list'>
                 <h2>My List:</h2>
@@ -75,18 +75,18 @@ GENERAL NOTES:
         <section id='mood_check'>
             <h3>How are you feeling today?</h3>
             <div id='mood_buttons'>
-                <input type="submit" value="Like I could take on the World!!!" id='takeOnTheWorld'>
-                <input type="submit" value="Feelin' Good!" id='good'>
-                <input type="submit" value="Fine." id='fine'>
-                <input type="submit" value="Ehhhhhhh" id='ehh'>
+                <input type="submit" value="Like I could take on the World!!!" id='takeOnTheWorld' class='button' class='mood'>
+                <input type="submit" value="Feelin' Good!" id='good' class='button' class='mood'>
+                <input type="submit" value="Fine." id='fine' class='button' class='mood'>
+                <input type="submit" value="Ehhhhhhh" id='ehh' class='button' class='mood'>
             </div>
         </section>
         <section class='body_child' class='two_side_by_side'   id='inspire'>
             <!-- can potentially remove this div as the section does the same job. Also consider renameing all full_page and half_page classes to half width to not confuse with height/vertical -->
             <div class='full_page' id="advice">
                 <!-- <img src='#' alt='Pretty Image' height='200px'> -->
-                <input type="submit" value="Design My Day!" id='designMyDayButton'>
-                <h3 id='advice_placeholder'></h3>
+                <input type="submit" value="Design My Day!" id='designMyDayButton' class='button'>
+                
             </div>
         </section>
         <section class='body_child' id='schedule'>
@@ -99,6 +99,7 @@ GENERAL NOTES:
         </section>
     <!-- I'm not confident this is the correct way to make a footer. Check back here if issues formatting. Probably have to do this in CSS-->
     <footer height='200px'>
+        <h3 id='advice_placeholder'></h3>
     </footer>
     
 </body>
