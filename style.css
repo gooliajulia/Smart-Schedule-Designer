@@ -267,14 +267,9 @@ input#enjoyment {
     width: 250px;
 }
 
-input.button {
-    padding: 10px;
-    border: none;
-    border-radius: 25px;
-    background-color: #e79e85;
-    /* margin-left: 135px; */
-    /* margin-top: 30px; */
-    color: #430d27;
+div#two_buttons_one_div {
+    display: flex; 
+    justify-content: space-between;
 }
 
 input#addTaskSubmitButton {
@@ -284,7 +279,18 @@ input#addTaskSubmitButton {
     background-color: #e79e85; */
     background-color: #e79e85;
     color: #430d27;
-    margin-left: 135px;
+    margin-left: 15px;
+    margin-top: 30px;
+    /* color: #430d27; */
+} 
+input#addRandomTaskButton {
+    /* padding: 10px; */
+    /* border: none; */
+    /* border-radius: 25px;
+    background-color: #e79e85; */
+    background-color: #e79e85;
+    color: #430d27;
+    /* margin-left: 135px; */
     margin-top: 30px;
     /* color: #430d27; */
 } 
@@ -320,7 +326,7 @@ section#mood_check {
     margin-top: 0px;
     margin-bottom: 50px;
     margin-right: 60px;
-    background-color: #bb5a5a;
+    background-color: #b16060;
     /* width: 100vw; */
     padding: 20px;
     border-radius: 40px;
@@ -343,6 +349,29 @@ section#schedule.body_child {
 h3#advice_placeholder {
     text-align: center;
 }
+
+.colorA2 {
+    color: #f2f9f1;
+}
+.colorA2Background {
+    background-color: #f2f9f1;
+}
+.colorB2Background {
+    background-color: #5c715e;
+}
+.colorC2Background {
+    background-color: #b6cdbd;
+}
+input.button {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #e79e85;
+    /* margin-left: 135px; */
+    /* margin-top: 30px; */
+    color: #430d27;
+}
+
 
 
 

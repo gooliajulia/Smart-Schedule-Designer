@@ -40,48 +40,51 @@ GENERAL NOTES:
 
     <script src='script.js' defer></script>
 
-    <title>Design Your Day</title>
+    <title class='colorA'>Design Your Day</title>
 </head>
-<body>
+<body class='colorBBackground'>
     <header>
-        <h1>Design Your Day.</h1>
+        <h1 class='colorA' id='logo'>Design Your Day.</h1>
     </header>
-    <section id='mood_check'>
-        <h3>How are you feeling today?</h3>
+    <section id='mood_check' class='colorCBackground'  >
+        <h3 class='colorA'>How are you feeling today?</h3>
         <div id='mood_buttons'>
-            <input type="submit" value="Like I could take on the World!!!" id='takeOnTheWorld' class='button' class='mood' class='unclicked'>
-            <input type="submit" value="Feelin' Good!" id='good' class='button' class='mood' class='unclicked'>
-            <input type="submit" value="Fine." id='fine' class='button' class='mood' class='unclicked'>
-            <input type="submit" value="Ehhhhhhh" id='ehh' class='button' class='mood' class='unclicked'>
+            <input  type="submit" value="Like I could take on the World!!!" id='takeOnTheWorld' class='button' class='mood' class='unclicked' class='colorABackground'>
+            <input  type="submit" value="Feelin' Good!" id='good' class='button' class='mood' class='unclicked'lass='colorABackground' >
+            <input  type="submit" value="Fine." id='fine' class='button' class='mood' class='unclicked' class='colorABackground'>
+            <input  type="submit" value="Ehhhhhhh" id='ehh' class='button' class='mood' class='unclicked' class='colorABackground'>
         </div>
     </section>
     <!-- I'm not confident these sections can have two classes. Testing. -->
         <section id='landing_page' class='two_side_by_side' class='body_child'>
             <div class='half_page' id='user_input'>
-                <h2>What do you need to get done?</h2>
+                <h2 class='colorA'>What do you need to get done?</h2>
             <!-- post MVP make this section a form -->
-                <input class='reset' type='text' id='task' placeholder="Task">
+                <input  class='colorBBackground' class='colorA' class='reset' type='text' id='task' placeholder="Task" >
             <!-- These <br> tags break the two input boxes from being inline, and add an extra line between. (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_test) -->
                 <br>
                 <br>
-                <input class='reset' type='text' id='importance' placeholder="How important is this task? (1-10)">
+                <input  class='colorBBackground' class='colorA' class='reset' type='text' id='importance' placeholder="How important is this task? (1-10)" >
                 <br>
                 <br>
-                <input class='reset' type='text' id='urgency' placeholder="How urgent is this task? (1-10)">
+                <input  class='colorBBackground' class='colorA' class='reset' type='text' id='urgency' placeholder="How urgent is this task? (1-10)" >
                 <br>
                 <br>
-                <input class='reset' type="text" id='enjoyment' placeholder="How much do you enjoy doing this task?">
+                <input class='colorBBackground' class='reset' type="text" id='enjoyment' placeholder="How much do you enjoy doing this task?" >
                 <br>
                 <br>
-                <input type="submit" value="Add Task to My List" id='addTaskSubmitButton' class='button'>
+                <div id='two_buttons_one_div'>
+                    <input type='submit' value='Add Random Task' id='addRandomTaskButton' class='button'>
+                    <input  type="submit" value="Add Task to My List" id='addTaskSubmitButton' class='button' class='colorABackground'>
+                </div>
             </div>
             <div id='list_and_button'>
-                <div class='half_page' id='to_do_list'>
+                <div class='colorABackground' class='half_page' id='to_do_list'>
                     <h2>My List:</h2>
                     <ul id='myList'>
                     </ul>
                 </div>
-                <input type="submit" value="Design My Day!" id='designMyDayButton' class='button'>
+                <input  type="submit" value="Design My Day!" id='designMyDayButton' class='button' class='colorABackground'>
             </div>
 
         </section>
@@ -93,7 +96,7 @@ GENERAL NOTES:
                 
             </div>
         </section>
-        <section class='body_child' id='schedule'>
+        <section class='colorABackground' class='body_child' id='schedule'>
             <!-- Same as above applies here, consider removing this div to clean up code as section does same job. -->
             <div class='full_page' id='day_schedule'>
                 <ul id='scheduleList'>
@@ -103,7 +106,7 @@ GENERAL NOTES:
         </section>
     <!-- I'm not confident this is the correct way to make a footer. Check back here if issues formatting. Probably have to do this in CSS-->
     <footer height='200px'>
-        <h3 id='advice_placeholder'></h3>
+        <h3  class='colorA' id='advice_placeholder'></h3>
     </footer>
     
 </body>

@@ -24,7 +24,7 @@
 const fetchAdvice = () => {
     const advAPIUrl = 'https://api.adviceslip.com/advice'
 
-    console.log('Making request');
+    console.log('Making Advice API request');
     //console.log(`API URL: ${advAPIUrl}`);
 
     fetch(advAPIUrl)
@@ -39,6 +39,23 @@ const fetchAdvice = () => {
         });
 }
 
+// This simple fetches the random activity (NOTE: if later on you want users to be able to search by type, cost or amount of people, you should use string interpolation to leave a variable for user to enter)
+const fetchActivities = () => {
+    const activityAPIUrl = 'https://www.boredapi.com/api/activity/'
+    console.log('Making Bored API request');
+
+    fetch(activityAPIUrl)
+        .then((result) => {return result.json() })
+        .then((resultJSON) => {
+            console.log(resultJSON);
+        })
+        .catch((err) => {
+            console.log(`ERROR: ${err}`)
+        });
+    
+}
+// Now we must make an event listener for when the 'Add Random Task' Button is clicked, that will fetch a random activity object (property "activity") and input that text into the task input field. The user can then decide if they want to keep the activity, and input its enjoyment, imp and urg. or replace it, with their own or another random one.
+fetchActivities();
 
 const showAdvice = (advice) => {
     //console.log(advice);
@@ -436,6 +453,38 @@ designMyDayButton.addEventListener('click', () => {
 
     createSchedule(rankedTaskArray);
 
+})
+
+// Make an event listener that waits for a click on 'Design Your Day.' and when clicked, changes all elements with class 'colorA' to a different color
+// 
+// should querySelect to get all elements with class 'colorA' and add class 'colorA2'
+// colorA2 will have a css section that changes to that color scheme
+// the next click would then change class 'colorA2' to 'colorA3'
+// the next click would remove class 'colorA3'
+
+const logo = document.querySelector('#logo')
+logo.addEventListener('click', () => {
+    console.log('Logo was clicked!');
+    const colorAArray = document.querySelectorAll('.colorA');
+    console.log(colorAArray);
+    colorAArray.forEach((element) =>
+        element.classList.add('colorA2') )
+    const colorABackgroundArray = document.querySelectorAll('.colorABackground');
+    console.log(colorABackgroundArray);
+    colorABackgroundArray.forEach((element) =>
+        element.classList.add('colorA2Background'));
+    const colorAPlaceholderArray = document.querySelectorAll('[placeholder]');
+    console.log(colorAPlaceholderArray);
+    colorAPlaceholderArray.forEach((element) => 
+        element.classList.add('colorA2Placeholder'))
+    const colorBArray = document.querySelectorAll('.colorBBackground');
+    console.log(colorBArray);
+    colorBArray.forEach((element) =>
+        element.classList.add('colorB2Background'))
+    const colorCArray = document.querySelectorAll('.colorCBackground');
+    console.log(colorCArray);
+    colorCArray.forEach((element) => 
+        element.classList.add('colorC2Background'))
 })
 
 
