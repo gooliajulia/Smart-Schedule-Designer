@@ -117,7 +117,7 @@ const makeNewTaskObject = () => {
 
 
 // create a function that calculates Task's weighted ranking
-
+let mood = 'fine'
 const rateTask = (taskObject) => {
     //console.log(taskObject)
     const pointTotal = taskObject.importance + taskObject.urgency + taskObject.enjoyment
@@ -135,7 +135,7 @@ const addTaskToMyList = (newTaskObject) => {
     myListUl.appendChild(taskNameLi);
     taskNameLi.addEventListener('click', () => {
         console.log(taskNameLi.classList)
-        if (taskNameLi.classList == 'strike') {
+        if (taskNameLi.classList = 'strike') {
             taskNameLi.classList = '';
         } else {
             taskNameLi.classList = 'strike'
