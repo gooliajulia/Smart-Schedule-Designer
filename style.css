@@ -43,6 +43,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0 30px;
+
 }
 
 /* I created section tags for each child element of the body to have a common name (as opposed to div, section etc. But now I'm realizing this excludes header and footer. Instead I could probably just add the body_child class to each subsection. */
@@ -100,6 +101,17 @@ section.two_side_by_side {
         width: 60%;
         align-self: left;
         margin-right: 100px;
+    }
+    div#mood_buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    section#schedule.body_child {
+        margin-right: 0px;
+    }
+    section#mood_check {
+    margin-top: 50px;
+    margin-right: 60px;
     }
 
 }
@@ -299,6 +311,15 @@ section#mood_check h3 {
 }
 section#mood_check {
     margin-top: 50px;
+    margin-right: 60px;
+    background-color: #bb5a5a;
+    /* width: 100vw; */
+    padding: 30px;
+    border-radius: 40px;
+}
+
+section#schedule.body_child {
+    margin-right: 60px;
 }
 
 /* section#inspire {
