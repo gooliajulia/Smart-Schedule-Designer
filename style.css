@@ -167,6 +167,7 @@ div#to_do_list {
     width: 30%;
     height: 100%;
     margin-right: 70px;
+    margin-top: 20px;
 }
 
 div#to_do_list ul {
@@ -303,18 +304,19 @@ div#mood_buttons {
     display: flex;
     gap: 20px;
     padding-top: 5px;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 section#mood_check h3 {
-    text-align: right;
+    text-align: left;
 }
 section#mood_check {
-    margin-top: 50px;
+    margin-top: 0px;
+    margin-bottom: 50px;
     margin-right: 60px;
     background-color: #bb5a5a;
     /* width: 100vw; */
-    padding: 30px;
+    padding: 20px;
     border-radius: 40px;
 }
 

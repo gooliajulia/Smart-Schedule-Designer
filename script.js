@@ -117,9 +117,45 @@ const makeNewTaskObject = () => {
 
 
 // create a function that calculates Task's weighted ranking
+// set default mood
 let mood = 'fine'
+console.log(mood)
+// add event listener to mood buttons to change mood
+// a. create a forEach for each button
+// b. 
+
+// objectArray.forEach(element =>
+//newArray.push(element.name));
+
+const moodButtonParent = document.querySelectorAll('#mood_buttons input')
+console.log(moodButtonParent);
+console.log(moodButtonParent.length);
+moodButtonParent.forEach((button) => 
+    button.addEventListener('click', () => {
+        console.log(button.value);
+        let buttonMood = button.id;
+        mood = buttonMood;
+        console.log(`Mood is ${mood}`);
+    }))
+
+
+
+
 const rateTask = (taskObject) => {
     //console.log(taskObject)
+    if (mood == 'takeOnTheWorld') {
+        console.log(`starting importance: ${taskObject.importance}`);
+        console.log(taskObject.urgency);
+        taskObject.importance *= 1.5;
+        taskObject.urgency *= 1.5;
+        console.log(taskObject.importance);
+        console.log(taskObject.urgency);
+    } else if (mood === 'good') {
+        taskObject.urgency *= 1.5;
+    } else if (mood === 'ehh') {
+        taskObject.enjoyment *= 2;
+    }
+    console.log(mood);
     const pointTotal = taskObject.importance + taskObject.urgency + taskObject.enjoyment
     console.log(`${taskObject.name} task is rated with ${pointTotal} points.`)
     return pointTotal;
