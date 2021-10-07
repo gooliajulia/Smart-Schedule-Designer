@@ -330,6 +330,7 @@ section#mood_check {
     /* width: 100vw; */
     padding: 20px;
     border-radius: 40px;
+    width: 500px;
 }
 
 section#schedule.body_child {
