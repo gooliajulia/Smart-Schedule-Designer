@@ -40,22 +40,54 @@ const fetchAdvice = () => {
 }
 
 // This simple fetches the random activity (NOTE: if later on you want users to be able to search by type, cost or amount of people, you should use string interpolation to leave a variable for user to enter)
+
 const fetchActivities = () => {
     const activityAPIUrl = 'https://www.boredapi.com/api/activity/'
     console.log('Making Bored API request');
 
     fetch(activityAPIUrl)
-        .then((result) => {return result.json() })
+        .then((result) => {
+            return result.json() })
         .then((resultJSON) => {
-            console.log(resultJSON);
+            addRandomTaskToInput(resultJSON);
         })
         .catch((err) => {
             console.log(`ERROR: ${err}`)
         });
-    
 }
+
+// must make a function that uses the API to take the activity name and ipnut it into the input text field for task.
+
+const addRandomTaskToInput = (activityData) => {
+    console.log(activityData);
+
+    const randomTaskName = document.createElement('p');
+    randomTaskName.innerText = activityData.activity;
+    console.log(randomTaskName);
+    console.log(randomTaskName.innerText);
+    const taskInput = document.querySelector('#task');
+    taskInput.value = randomTaskName.innerText;
+    const textLength = randomTaskName.innerText.length;
+    console.log(textLength);
+    let newWidth = textLength*7;
+    console.log(newWidth);
+    taskInput.style.width = `${newWidth}px`;
+}
+
+
+
+
+
 // Now we must make an event listener for when the 'Add Random Task' Button is clicked, that will fetch a random activity object (property "activity") and input that text into the task input field. The user can then decide if they want to keep the activity, and input its enjoyment, imp and urg. or replace it, with their own or another random one.
-fetchActivities();
+// fetchActivities();
+
+const randomTaskButton = document.querySelector('#addRandomTaskButton');
+randomTaskButton.addEventListener('click', () => {
+    fetchActivities();
+})
+
+
+
 
 const showAdvice = (advice) => {
     //console.log(advice);
