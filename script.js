@@ -499,10 +499,10 @@ const logo = document.querySelector('#logo')
 logo.addEventListener('click', () => {
     console.log('Logo was clicked!');
     if (colorTracker === 0) {
-        switchColorTheme(earthyGreenTheme);
+        switchColorTheme(orangeTheme);
         colorTracker += 1;
     } else if (colorTracker === 1) {
-        switchColorTheme(orangeTheme);
+        switchColorTheme(earthyGreenTheme);
         colorTracker += 1;
     } else if  (colorTracker === 2) {
         switchColorTheme(classicColors)
@@ -578,7 +578,7 @@ const switchColorTheme = ([a,b,c,d]) => {
 const earthyGreenTheme = ['#b6cdbd', '#ddeedf', '#5c715e', '#f2f9f1'];
 const orangeTheme = ['#f2e9d0', '#eaceb4', '#e79e85' , '#bb5a5a'];
 const originalTheme = ['#713045', '#bb5a5a', '#e79e85', '#c94e4e'];
-const classicColors = ['#494949', '#fffdf6', '#ece8d9', '#faf6e9' ]
+const classicColors = ['#ece8d9', '##fffdf6', '#494949',  '#faf6e9' ]
 
 
 // PseudoCode for To Do List strike through upon click
