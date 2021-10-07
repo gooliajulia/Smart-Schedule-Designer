@@ -164,9 +164,8 @@ body {
 div#to_do_list {
     background-color: #e79e85;
     border-radius: 30px;
-    width: 30%;
+    width: 80%;
     height: 100%;
-    margin-right: 70px;
     margin-top: 20px;
 }
 
@@ -283,6 +282,8 @@ input#addTaskSubmitButton {
     /* border: none; */
     /* border-radius: 25px;
     background-color: #e79e85; */
+    background-color: #e79e85;
+    color: #430d27;
     margin-left: 135px;
     margin-top: 30px;
     /* color: #430d27; */
@@ -291,14 +292,19 @@ input#addTaskSubmitButton {
 input#designMyDayButton {
     /* padding: 10px;
     border: none;
-    border-radius: 25px;
-    background-color: #e79e85; */
+    border-radius: 25px; */
+    /* background-color: #bb5a5a; */
     margin-left: 135px;
     margin-top: 30px;
     margin-right: 50px;
+    margin-bottom: 10px;
     height: 42px;
-    color: #430d27;
+    /* color: #430d27; */
 } 
+div#list_and_button {
+    display: flex;
+    flex-direction: column;
+}
 
 div#mood_buttons {
     display: flex;

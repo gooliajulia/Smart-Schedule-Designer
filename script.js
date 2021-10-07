@@ -185,7 +185,7 @@ const addTaskToMyList = (newTaskObject) => {
     myListUl.appendChild(taskNameLi);
     taskNameLi.addEventListener('click', () => {
         console.log(taskNameLi.classList)
-        if (taskNameLi.classList = 'strike') {
+        if (taskNameLi.classList == 'strike') {
             taskNameLi.classList = '';
         } else {
             taskNameLi.classList = 'strike'
