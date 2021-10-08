@@ -340,7 +340,6 @@ const scheduleStartTime = () => {
     let startTimeA = roundTime(currentHour, currentMinutes);
     console.log(startTimeA);
     return startTimeA;
-    
 }
 
 //The following function is meant to round time to the nearest quarter hour
