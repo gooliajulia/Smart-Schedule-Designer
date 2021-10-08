@@ -87,8 +87,8 @@ section.two_side_by_side {
     }
     div#to_do_list {
         align-self: center;
-        margin-top: 150px;
-        margin-left: 20%;
+        /* margin-top: 300px; */
+        /* margin-left: 20%; */
         width: 100%;
     }
     div#advice.full_page {
@@ -98,7 +98,7 @@ section.two_side_by_side {
         justify-content: space-around; */
     }
     input#designMyDayButton {
-        width: 60%;
+        /* width: 60%; */
         align-self: left;
         margin-right: 100px;
     }
@@ -112,6 +112,15 @@ section.two_side_by_side {
     section#mood_check {
     margin-top: 50px;
     margin-right: 60px;
+    width: 80px;
+    }
+    div#mood_check_parent {
+        display: flex;
+        justify-content: center;
+    }
+    div#list_and_button {
+        margin-top: 50px;
+        display: flex;
     }
 
 }
