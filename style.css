@@ -50,7 +50,7 @@ body {
 
 /* This pads vertically between elements. Consider adjusting left and right padding as well at some point */
 section.body_child {
-    padding: 50px 0 50px 0;
+    padding: 30px 0 50px 0;
 }
 
 /* Establishing flexbox notes:
@@ -65,7 +65,7 @@ section.two_side_by_side {
     display: flex;
     /* creates space between child elements (div#user_input and div#to_do_list */
     justify-content:space-between;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 @media screen and (max-width: 435px) {
@@ -192,7 +192,7 @@ div#to_do_list ul {
 header h1 {
     font-family: 'Rufina', serif;
     font-size: 50px;
-    padding: 70px 0 0 0;
+    padding: 0px 0 0 0;
     color: #e79e85;
 }
 
@@ -380,6 +380,9 @@ input.button {
     /* margin-left: 135px; */
     /* margin-top: 30px; */
     color: #430d27;
+    font-weight: bold;
+    font-family: 'PT Serif', serif;
+
 }
 
 

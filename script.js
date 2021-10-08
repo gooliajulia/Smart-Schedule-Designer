@@ -499,18 +499,18 @@ const logo = document.querySelector('#logo')
 logo.addEventListener('click', () => {
     console.log('Logo was clicked!');
     if (colorTracker === 0) {
-        switchColorTheme(orangeTheme);
+        switchColorTheme(testingTheme);
         colorTracker += 1;
     } else if (colorTracker === 1) {
-        switchColorTheme(earthyGreenTheme);
+        switchColorTheme(warmNeutral);
         colorTracker += 1;
     } else if  (colorTracker === 2) {
-        switchColorTheme(classicColors)
+        switchColorTheme(testingTheme2);
         colorTracker += 1;
     } else if (colorTracker === 3) {
         switchColorTheme(originalTheme);
         colorTracker = 0;
-    }
+    } 
     
 
     // I think it would honestly be better with this code to target elements individually or in similar groups and change the color here either via style or cssText. Consider creating specific functions for each color so that here you can just write: changetoBlueTheme, or change to GreenTheme. You can also include an if statement that checks if body background color =='maroon' etc as your gauge for switching.
@@ -579,6 +579,10 @@ const earthyGreenTheme = ['#b6cdbd', '#ddeedf', '#5c715e', '#f2f9f1'];
 const orangeTheme = ['#f2e9d0', '#eaceb4', '#e79e85' , '#bb5a5a'];
 const originalTheme = ['#713045', '#bb5a5a', '#e79e85', '#c94e4e'];
 const classicColors = ['#ece8d9', '##fffdf6', '#494949',  '#faf6e9' ]
+const warmNeutral = ['#e4cdbf', '#eeddd4', '#f4f3ef', '#f6f0e4'];
+const testingTheme  = [ '#909486', '#bbbfb1','#ebeee1', '#e8c1a4']
+const testingTheme2 = ['#434640', '#eab18e', '#a39069', '#be5843' ]
+
 
 
 // PseudoCode for To Do List strike through upon click
