@@ -352,35 +352,41 @@ const scheduleStartTime = () => {
 // adding a third parameter of AmPm with default 'am' for future rounding
 const roundTime = (hour, minutes, ampm='am', startOrWorking = 'start') => {
     if (startOrWorking == 'working') {
-        if ( minutes < 5 ) {
+        if ( minutes <= 5 ) {
             minutes = 10;
-        } else if ( minutes < 10 ) {
+        } else if ( minutes <= 10 ) {
             minutes = 15;
-        } else if ( minutes < 15 ) {
+        } else if ( minutes <= 15 ) {
             minutes = 20;
-        } else if (minutes < 20 ) {
+        } else if (minutes <= 20 ) {
             minutes = 25;
-        } else if (minutes < 25) {
+        } else if (minutes <= 25) {
             minutes = 30;
-        } else if (minutes < 30) {
+        } else if (minutes <= 30) {
             minutes = 35;
-        } else if (minutes < 35 ) {
+        } else if (minutes <= 35 ) {
             minutes = 40;
-        } else if (minutes < 40) {
+        } else if (minutes <= 40) {
             minutes = 45;
-        } else if (minutes < 45 ) {
+        } else if (minutes <= 45 ) {
             minutes = 50;
-        } else if (minutes < 50 ) {
+        } else if (minutes <= 50 ) {
             minutes = 55;
         } else {
             hour+= 1;
             minutes = '00';
         }
         if (hour === 0 ) {
-            ampm = 'am'
             hour = 12;
-        } else if (hour > 12) {
-            ampm = 'pm'
+        };
+        if (hour >= 12) {
+            if (ampm = 'am') {
+                ampm = 'pm'
+            } else {
+                ampm = 'am'
+            }
+        }
+        if (hour > 12) {
             hour-= 12;
         }
     } else if (startOrWorking == 'start' ) {
@@ -395,10 +401,16 @@ const roundTime = (hour, minutes, ampm='am', startOrWorking = 'start') => {
         minutes = '00';
     }
     if (hour === 0 ) {
-        ampm = 'am'
         hour = 12;
-    } else if (hour > 12) {
-        ampm = 'pm'
+    };
+    if (hour >= 12) {
+        if (ampm = 'am') {
+            ampm = 'pm'
+        } else {
+            ampm = 'am'
+        }
+    }
+    if (hour > 12) {
         hour-= 12;
     }}
     const startTimeArray = [hour, minutes, ampm];
@@ -591,6 +603,7 @@ const switchColorTheme = ([a,b,c,d]) => {
     document.querySelector('#importance').style.backgroundColor = a;
     document.querySelector('#urgency').style.backgroundColor = a;
     document.querySelector('#enjoyment').style.backgroundColor = a;
+    document.querySelector('#timeEst').style.backgroundColor = a;
     document.querySelector('#takeOnTheWorld').style.color = a;
     document.querySelector('#good').style.color = a;
     document.querySelector('#fine').style.color = a;
@@ -604,6 +617,7 @@ const switchColorTheme = ([a,b,c,d]) => {
     document.querySelector('#importance').style.borderColor = b;
     document.querySelector('#urgency').style.borderColor = b;
     document.querySelector('#enjoyment').style.borderColor = b;
+    document.querySelector('#timeEst').style.borderColor = b;
     document.querySelector('#logo').style.color = c;
     document.querySelector('#howAreYou').style.color = c;
     document.querySelector('#takeOnTheWorld').style.backgroundColor = c;
@@ -620,6 +634,10 @@ const switchColorTheme = ([a,b,c,d]) => {
 
 }
 
+// a is body color, button text color, and My list title color
+// b is mood check background color, text input underlines
+// c is logo color, mood box question text, button background colors, input title text color, my list background color
+// d is
 const earthyGreenTheme = ['#b6cdbd', '#ddeedf', '#5c715e', '#f2f9f1'];
 const orangeTheme = ['#f2e9d0', '#eaceb4', '#e79e85' , '#bb5a5a'];
 const originalTheme = ['#713045', '#bb5a5a', '#e79e85', '#c94e4e'];
@@ -629,7 +647,7 @@ const testingTheme  = [ '#909486', '#bbbfb1','#ebeee1', '#e8c1a4']
 const testingTheme2 = ['#434640', '#eab18e', '#a39069', '#be5843' ]
 const testingTheme3 = [ '#af7270', '#8f514f', '#e3a78d' , '#f8e6da']
 const testingTheme4 = ['#3d5263' , '#cdbb73' ,'#768c77' , '#aebcc8']
-const penAndPaperTheme = ['#f2f2ef' ,'#77777A' ,'#f6f5f5','#121A20' ]
+const penAndPaperTheme = ['#d8dfd8' ,'#fff5ee' ,'#c7d1c8','#121A20' ]
 
 
 
