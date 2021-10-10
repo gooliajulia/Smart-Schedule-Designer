@@ -13,11 +13,6 @@
 // c. make a new constant by selectting the page element where you want to display the data using querySelector
 // d. create (or target already existing) element to hold data
 // 
-// CORS proxy. Information source: https://stackoverflow.com/questions/43262121/trying-to-use-fetch-and-pass-in-mode-no-cors
-// What is happening:
-// 1. I cloned the github repo "cors-anywhere" and installed. Then created a heroku and pushed from heroku to master. This ensures I have CORS server.
-// 2. I can use this server as a proxy URL to prefix my requested fetch URL. This will make the fetch request through my proxy adding necessary "Access-Control-Allow-Origin" header to the response. The response is then passed back to my JS request
-// 
 // 
 
 
@@ -130,6 +125,7 @@ const makeNewTaskObject = () => {
     const taskImportance = document.querySelector('input#importance').value;
     const taskUrgency = document.querySelector('input#urgency').value;
     const taskEnjoyment = document.querySelector('input#enjoyment').value;
+    const taskTimeEst = document.querySelector('input#timeEst').value;
     //Create an object for new task with each input as a property
     const newTaskObject = {
         name: taskName,
@@ -137,6 +133,7 @@ const makeNewTaskObject = () => {
         importance: parseInt(taskImportance),
         urgency: parseInt(taskUrgency),
         enjoyment: parseInt(taskEnjoyment),
+        minutes: parseInt(taskTimeEst),
     }
     // Adds newTask name to My list
     addTaskToMyList(newTaskObject);
@@ -258,6 +255,7 @@ const sampleObjectArray = [
         name: "do the dishes" ,
         rating: 19 ,
         urgency: 9 ,
+        minutes: 15,
     }, 
 
     {
@@ -266,6 +264,7 @@ const sampleObjectArray = [
         name: "start laundry" ,
         rating: 20 ,
         urgency: 8 ,
+        minutes: 10,
     },
 
     {
@@ -274,6 +273,7 @@ const sampleObjectArray = [
         name: "edit photos" ,
         rating: 21 ,
         urgency: 10 ,
+        minutes: 180,
     }, 
 
     {
@@ -282,6 +282,7 @@ const sampleObjectArray = [
         name: "inbox 0" ,
         rating: 15 ,
         urgency: 5 ,
+        minutes: 30,
     },
 
     {
@@ -290,6 +291,7 @@ const sampleObjectArray = [
         name: "clean out car" ,
         rating: 14 ,
         urgency: 6 ,
+        minutes: 30,
     }
 ]
 
@@ -317,10 +319,14 @@ const rankTasks = (objectArray) => {
 // The following function takes the sorted/ranked object array, and returns an array of the task names in that order
 
 const rankedTaskObjectArrayToSimpleArray = (objectArray) => {
-    newArray = [];
+    let newSmallArray = [];
+    console.log(objectArray)
+    console.log(objectArray[0].minutes)
     objectArray.forEach(element =>
-        newArray.push(element.name));
-    return newArray;
+        newSmallArray.push([element.name, element.minutes]),
+        console.log(newSmallArray)
+        )
+    return newSmallArray;
 }
 
 // const rankedTaskArray = rankedTaskObjectArrayToSimpleArray(sampleObjectArray);
@@ -344,7 +350,40 @@ const scheduleStartTime = () => {
 
 //The following function is meant to round time to the nearest quarter hour
 // adding a third parameter of AmPm with default 'am' for future rounding
-const roundTime = (hour, minutes, ampm='am') => {
+const roundTime = (hour, minutes, ampm='am', startOrWorking = 'start') => {
+    if (startOrWorking == 'working') {
+        if ( minutes < 5 ) {
+            minutes = 10;
+        } else if ( minutes < 10 ) {
+            minutes = 15;
+        } else if ( minutes < 15 ) {
+            minutes = 20;
+        } else if (minutes < 20 ) {
+            minutes = 25;
+        } else if (minutes < 25) {
+            minutes = 30;
+        } else if (minutes < 30) {
+            minutes = 35;
+        } else if (minutes < 35 ) {
+            minutes = 40;
+        } else if (minutes < 40) {
+            minutes = 45;
+        } else if (minutes < 45 ) {
+            minutes = 50;
+        } else if (minutes < 50 ) {
+            minutes = 55;
+        } else {
+            hour+= 1;
+            minutes = '00';
+        }
+        if (hour === 0 ) {
+            ampm = 'am'
+            hour = 12;
+        } else if (hour > 12) {
+            ampm = 'pm'
+            hour-= 12;
+        }
+    } else if (startOrWorking == 'start' ) {
     if ( minutes < 15 ) {
         minutes = 15;
     } else if ( minutes < 30 ) {
@@ -361,7 +400,7 @@ const roundTime = (hour, minutes, ampm='am') => {
     } else if (hour > 12) {
         ampm = 'pm'
         hour-= 12;
-    }
+    }}
     const startTimeArray = [hour, minutes, ampm];
     return startTimeArray;
 } 
@@ -430,7 +469,7 @@ const scheduleTask = (task, minutesToComplete = 25) => {
         workingTime[1] = '00'
     }
     let string = `${workingTime[0]}:${workingTime[1]} ${workingTime[2]} \u00A0\u0020\u0020\u0020\u0020\u0020 ${task}`;
-    workingTime = roundTime(addTime(workingTime, minutesToComplete)[0],addTime(workingTime, minutesToComplete)[1],addTime(workingTime, minutesToComplete)[2]);
+    workingTime = roundTime(addTime(workingTime, minutesToComplete)[0],addTime(workingTime, minutesToComplete)[1],addTime(workingTime, minutesToComplete)[2], 'working');
     console.log(string);
     console.log(workingTime);
     let array = [string, workingTime];
@@ -463,7 +502,8 @@ const createSchedule = (array) => {
     const scheduleUl = document.querySelector('#scheduleList');
     array.forEach(function(rankedTask) {
         const li = document.createElement('li');
-        const liText = scheduleTask(rankedTask)[0];
+        // after adding an estimated completion time for each object, input it here into the scheduleTask function as the second argument
+        const liText = scheduleTask(rankedTask[0], rankedTask[1] )[0];
         li.innerText = liText;
         scheduleUl.appendChild(li);
     })
@@ -507,6 +547,12 @@ logo.addEventListener('click', () => {
         switchColorTheme(testingTheme2);
         colorTracker += 1;
     } else if (colorTracker === 3) {
+        switchColorTheme(testingTheme4);
+        colorTracker += 1;
+    } else if (colorTracker === 4) {
+        switchColorTheme(penAndPaperTheme);
+        colorTracker += 1
+    } else if (colorTracker === 5) {
         switchColorTheme(originalTheme);
         colorTracker = 0;
     } 
@@ -581,6 +627,9 @@ const classicColors = ['#ece8d9', '##fffdf6', '#494949',  '#faf6e9' ]
 const warmNeutral = ['#e4cdbf', '#eeddd4', '#f4f3ef', '#f6f0e4'];
 const testingTheme  = [ '#909486', '#bbbfb1','#ebeee1', '#e8c1a4']
 const testingTheme2 = ['#434640', '#eab18e', '#a39069', '#be5843' ]
+const testingTheme3 = [ '#af7270', '#8f514f', '#e3a78d' , '#f8e6da']
+const testingTheme4 = ['#3d5263' , '#cdbb73' ,'#768c77' , '#aebcc8']
+const penAndPaperTheme = ['#f2f2ef' ,'#77777A' ,'#f6f5f5','#121A20' ]
 
 
 

@@ -8,7 +8,6 @@ const scheduleStartTime = () => {
     const currentHour = today.getHours();
     const currentMinutes = today.getMinutes();
     console.log(`${currentHour}:${currentMinutes}`);
-    // I'm changing the above code so that this function returns a time array since that is more workable for adding minutes.
     let startTimeA = roundTime(currentHour, currentMinutes);
     console.log(startTimeA);
     return startTimeA;
@@ -103,9 +102,4 @@ const testingTheme2 = ['#434640', '#eab18e', '#a39069', '#be5843' ]
 // Future Changes:
 // a. input time estimated to complete and work into the time scheduling ( so something like washing the dishes isn't scheduled for 30 minutes, and a longer 2 hour task will be broken into 25 minute sections)
 // b. when switching color themes, get the input plceholders to change too and the list li's to change as well
-// 
-// 
-// 
-// 
-// 
 // 
